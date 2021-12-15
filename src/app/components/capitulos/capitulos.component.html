@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-7">
+      <input
+        type="text"
+        #termino
+        class="form-control"
+        value=""
+        (keyup)="setUrlSearchCapitulos(termino.value)"
+        placeholder="Search by chapter, character or characteristic"
+        style="cursor: pointer"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="table-responsive">
+    <table
+      class="table table-bordered table-hover text-white"
+      style="text-align: center"
+    >
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Characters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let listadoCapitulos of listaCapitulos"
+          class="table-secondary text-dark"
+        >
+          <th scope="row" style="vertical-align: middle">
+            {{ listadoCapitulos.name }}
+          </th>
+          <td>
+            <ul style="list-style: none">
+              <li
+                [routerLink]="['capitulos-personajes']"
+                *ngFor="let personaje of listadoCapitulos.personajes"
+                style="cursor: pointer"
+                (click)="verCapitulos(personaje)"
+              >
+                {{ personaje.name }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

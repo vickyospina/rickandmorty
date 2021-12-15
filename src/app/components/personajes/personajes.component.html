@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-7">
+      <input
+        type="text"
+        #termino
+        class="form-control"
+        value=""
+        (keyup)="setUrlSearchPersonajes(termino.value)"
+        placeholder="Search by chapter, character or characteristic"
+        styles="cursor: pointer, width:70%"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row row-cols-1 row-cols-md-2">
+    <div *ngFor="let listadoPersonajes of listaPersonajes" class="col mb-4">
+      <div
+        class="card mb-3 text-black border border-light"
+        style="background-color: rgb(219, 51, 101)"
+      >
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img
+              [src]="listadoPersonajes.image"
+              class="card-img-top h-100"
+              alt="..."
+              style="height: 200px"
+            />
+          </div>
+          <div class="col-md-7 mb-0">
+            <div class="card-body col-md-12" style="padding: 15px">
+              <h2 class="card-title text1 mb-10" style="font-size: 20px">
+                {{ listadoPersonajes.name }}
+              </h2>
+              <p class="card-text mb-0">
+                <small class="text-dark"> <strong>Species:</strong> </small>
+              </p>
+              <p class="card-text text2">{{ listadoPersonajes.species }}</p>
+              <p class="card-text mb-0">
+                <small class="text-dark"> <strong>Status: </strong></small>
+              </p>
+              <p class="card-text text3">{{ listadoPersonajes.status }}</p>
+              <p class="card-text mb-0">
+                <small class="text-dark"> <strong>Gender: </strong></small>
+              </p>
+              <p class="card-text text4">{{ listadoPersonajes.gender }}</p>
+              <a
+                [routerLink]="['capitulos-personajes']"
+                class="btn btn-outline-light btn-lg btn-block"
+                (click)="verCapitulos(listadoPersonajes)"
+                >Chapters</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

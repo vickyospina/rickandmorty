@@ -1,0 +1,67 @@
+<div class="container mt-5">
+  <div class="row row-cols-1 row-cols-md-2">
+    <div class="col-4 mb-4">
+      <div
+        class="card mb-3 text-black bg-light border border-dark"
+        style="background-color: rgb(121, 23, 151)"
+      >
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img
+              [src]="personaje.image"
+              class="card-img-top h-100"
+              alt="..."
+              style="height: 200px"
+            />
+          </div>
+          <div class="col-md-7 mb-0">
+            <div class="card-body col-md-12" style="padding: 15px">
+              <h2 class="card-title text1 mb-10" style="font-size: 22px">
+                {{ personaje.name }}
+              </h2>
+              <p class="card-text mb-0">
+                <small class="text-muted"> Species: </small>
+              </p>
+              <p class="card-text text2">{{ personaje.species }}</p>
+              <p class="card-text mb-0">
+                <small class="text-muted"> Condition: </small>
+              </p>
+              <p class="card-text text3">{{ personaje.status }}</p>
+              <p class="card-text mb-0">
+                <small class="text-muted"> Gender: </small>
+              </p>
+              <p class="card-text text4">{{ personaje.gender }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="table-responsive">
+    <table
+      class="table table-bordered table-hover text-white"
+      style="text-align: center"
+    >
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">List OF Chapters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let infoCapitulos of capituloss"
+          class="table-primary text-dark"
+        >
+          <td style="vertical-align: middle">
+            <ul style="list-style: none">
+              <li>{{ infoCapitulos.name }}</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
